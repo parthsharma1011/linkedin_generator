@@ -1,38 +1,47 @@
 # LinkedIn Post Generator - Multi-Agent System
 
-Professional LinkedIn post generator using CrewAI with research, writing, and validation agents.
+Professional LinkedIn post generator with Gradio UI using CrewAI multi-agent system.
 
 ## Features
 
-- **Research Agent**: Uses Tavily API to find recent data and trends
-- **Writer Agent**: Crafts engaging posts following LinkedIn best practices  
-- **Validator Agent**: Ensures accuracy, authenticity, and quality
+- 🎨 **Gradio Web UI** - Simple interface for generating posts
+- 🔍 **Research Agent** - Uses Tavily API to find recent data and trends
+- ✍️ **Writer Agent** - Crafts engaging posts following LinkedIn best practices  
+- ✅ **Validator Agent** - Ensures accuracy, authenticity, and quality
 
-## Setup
+## Quick Start
 
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. API keys are already configured in `.env`
-
-3. Run the generator:
+2. Create `.env` file:
    ```bash
-   python linkedin_generator.py
+   cp .env.example .env
+   # Add your API keys
    ```
+
+3. Run locally:
+   ```bash
+   python gradio_app.py
+   ```
+
+4. Open browser: http://localhost:7860
 
 ## Usage
 
-The script will prompt you for:
+The UI allows you to:
 - **Topic**: What you want to write about
 - **Tone**: professional, casual, thought-leader
-- **Post Type**: story, hot-take, announcement, lesson-learned
+- **Post Type**: story, hot-take, announcement, lesson-learned, thought-leader
+
+## Deploy to Render
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions.
 
 ## Output
 
 - Complete LinkedIn post ready to copy/paste
 - Validation score and suggestions
 - Word count and research source count
-
-The system automatically researches your topic, writes an engaging post, and validates it for quality before presenting the final result.

@@ -1,6 +1,15 @@
 # Deployment Setup Guide
 
-## Step 1: Setup Render
+## Quick Start - Run Locally
+
+```bash
+cd /Users/parthsharma/Desktop/linkedin_generator
+./run_gradio.sh
+```
+
+Open browser: http://localhost:7860
+
+## Deploy to Render
 
 1. Go to https://render.com and sign up
 2. Click "New +" → "Web Service"
@@ -16,42 +25,22 @@
 6. Add Environment Variables:
    - `GOOGLE_API_KEY`: Your Google API key
    - `TAVILY_API_KEY`: Your Tavily API key
-   - `PORT`: 5000
+   - `PORT`: 7860
 
 7. Click "Create Web Service"
 
-## Step 2: Get Deploy Hook (Optional - for auto-deploy)
+## Features
 
-1. In Render dashboard → Your service → Settings
-2. Scroll to "Deploy Hook"
-3. Copy the URL
-4. Go to GitHub repo → Settings → Secrets → Actions
-5. Add secret: `RENDER_DEPLOY_HOOK` with the URL
+- 📝 Simple UI to enter topic, tone, and post type
+- 🤖 AI-powered research and writing
+- ✅ Automatic validation and suggestions
+- 📊 Word count and quality score
 
-## Step 3: Deploy
-
-Render will auto-deploy on every push to main branch.
-
-Or manually trigger from Render dashboard → Manual Deploy
-
-## API Endpoints
-
-- `GET /` - API info
-- `GET /health` - Health check
-- `POST /generate` - Generate LinkedIn post
-  ```json
-  {
-    "topic": "AI in healthcare",
-    "tone": "professional",
-    "post_type": "thought-leader"
-  }
-  ```
-
-## Test Locally
+## Test Locally with Docker
 
 ```bash
 docker build -t linkedin-generator .
-docker run -p 5000:5000 --env-file .env linkedin-generator
+docker run -p 7860:7860 --env-file .env linkedin-generator
 ```
 
-Visit: http://localhost:5000
+Visit: http://localhost:7860
