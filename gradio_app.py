@@ -68,8 +68,9 @@ with gr.Blocks(title="LinkedIn Post Generator", theme=gr.themes.Soft()) as demo:
     gr.Markdown("💡 **Tip**: The generator uses research agents to find recent data and trends about your topic")
 
 if __name__ == "__main__":
+    port = int(os.getenv('PORT', 5000))
     demo.launch(
         server_name="0.0.0.0",
-        server_port=int(os.getenv('PORT', 7860)),
+        server_port=port,
         share=False
     )

@@ -9,4 +9,4 @@ services:
       - key: TAVILY_API_KEY
         sync: false
       - key: PORT
-        value: 7860
+        value: 5000
